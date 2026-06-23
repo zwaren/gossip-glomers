@@ -17,3 +17,14 @@ GO_BIN=~/go/bin
 	cd 03b-multi-broadcast && go install .
 	$(MAELSTROM_BIN) test -w broadcast --bin $(GO_BIN)/03b-multi-broadcast --node-count 5 --time-limit 20 --rate 10
 
+03c:
+	cd 03c-fault-tolerant-broadcast && go install .
+	$(MAELSTROM_BIN) test -w broadcast --bin $(GO_BIN)/03c-fault-tolerant-broadcast --node-count 5 --time-limit 20 --rate 10 --nemesis partition
+
+03d:
+	cd 03d-efficient-broadcast && go install .
+	$(MAELSTROM_BIN) test -w broadcast --bin $(GO_BIN)/03d-efficient-broadcast --node-count 25 --time-limit 20 --rate 100 --latency 100
+
+03e:
+	cd 03e-efficient-broadcast && go install .
+	$(MAELSTROM_BIN) test -w broadcast --bin $(GO_BIN)/03e-efficient-broadcast --node-count 25 --time-limit 20 --rate 100 --latency 100 --nemesis partition
